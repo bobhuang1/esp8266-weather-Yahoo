@@ -12,6 +12,7 @@ uint8_t YahooWeather::updateWeather(YahooWeatherCurrentData *data, YahooWeatherF
 }
 
 uint8_t YahooWeather::doUpdate(YahooWeatherCurrentData *data, YahooWeatherForecastData *data1, String url) {
+	if (WiFi.status() != WL_CONNECTED) return 0;
 	unsigned long lostTest = 60000UL;
 	unsigned long lost_do = millis();
 	this->weatherItemCounter = 0;
